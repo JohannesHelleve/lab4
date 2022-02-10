@@ -15,7 +15,7 @@ Klon koden for denne lab-oppgaven fra ditt eget repositorie ved hjelp av URIen:
       
 Se på lab-oppgavene fra tidligere uker for detaljert beskrivelse av hvordan.
 
-## 3.0 Celleautomater
+## 4.0 Celleautomater
 
 I denne oppgaven skal vi laget et program for å simulere celleautomater.
 
@@ -25,7 +25,7 @@ I denne oppgaven skal vi laget et program for å simulere celleautomater.
 
 
 
-### 3.0.1 A zero-player game called Game of Life
+### 4.0.1 A zero-player game called Game of Life
 [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway#Conway's_Game_of_Life) er en teoretisk matematiker som fant opp et zero-player game kalt **Game of Life**. 
 
 Conway spilte Game of Life med penn og papir eller ved hjelp av et [Go](https://en.wikipedia.org/wiki/Go_(game)) spillebrett, vist på bildet under, der brikkene representerer levende eller døde "celler". Han ble kjendis da den populærvitenskapelige journalisten Martin Gardner skrev om Game of Life i [Scientific American, October 1970](life.pdf).
@@ -34,7 +34,7 @@ Conway spilte Game of Life med penn og papir eller ved hjelp av et [Go](https://
 
 Game of Life er en celleautomat, en type *computational model*. Computational models er ikke pensum i INF101 (men i master-kurset [INF210](https://www.uib.no/emne/INF210)). Du trenger ikke forstå hva det er for å gjøre oppgaven, men vi gir en liten intro til Game of Life fra dette perspektivet for å hjelpe deg å skjønne hensikten med programmet vårt. 
 
-### 3.0.2 Computational what-now?
+### 4.0.2 Computational what-now?
 
 En *computational model* er en abstrakt maskin med et **minne** og et sett med **regler**. Minnet har en start-tilstand, ofte tenkt på som **input**. For å "kjøre" en slik model oppdaterer man minnet hver runde i henhold til reglene. 
 
@@ -44,7 +44,7 @@ Dette er ikke ulikt brettspill (f.eks. [Robo-Rally](https://boardgamegeek.com/bo
 
 I tilfellet av Game of Life, er minnet et rutenett av celler med verdien "død" eller "levende", og [**reglene**](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules) beskriver hvordan cellene blir oppdatert til å være levende eller døde i hvert oppdaterings-steg basert på verdiene til naboene. 
 
-### 3.0.3 Regler på liv og død 
+### 4.0.3 Regler på liv og død 
 Spillet simulerer til en viss grad biologisk liv, ved at levende celler som har mange naboer dør av "ovebefolkning", levende celler med en eller ingen naboer dør av "isloasjon" og en celle med nøyaktig tre naboer er levende uansett om den var død eller ikke fra før: den kan altså bli "født". 
 
 ![GoL-blinker](https://upload.wikimedia.org/wikipedia/commons/9/95/Game_of_life_blinker.gif)
@@ -55,7 +55,7 @@ Bildet under viser en "stabil" tilstand, der cellene aldri vil endre verdi. Sjek
 
 ![GoL-block](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Game_of_life_block_with_border.svg/66px-Game_of_life_block_with_border.svg.png)
 
-### 3.0.4 Zero players != Zero fun
+### 4.0.4 Zero players != Zero fun
 Til tross for at Game of Life aldri har vært noen slager på brettspillkveldene våre så lar vi lar oss gjerne fascinere av slike [fantastiske mønstrene](https://www.youtube.com/watch?v=C2vgICfQawE) kan oppstå fra slike enkle regler. 
 
 *Det interessante med cellemaskiner er hvordan komplekse strukterer kan oppstå ved hjelp av veldig enkle regler, ikke ulikt ekte biologiske systemer.*
@@ -69,7 +69,7 @@ Det finnes andre celleautomater enn Game of Life. De har alle til felles at de e
 
 I denne oppgaven skal vi bruke en slik abstrakt datatype til å lage et grafisk grensensnitt som vi kan kjøre forskjellige typer celleautomater på.
 
-# 3.1 Et rutenett av celler
+# 4.1 Et rutenett av celler
 *I denne oppgaven skal vi implementere en datastruktur som kan representere et rutenett av levende eller døde celler.*
 
 En celleautomat består av celler organisert i en todimensjonal grid. Hver celle har en "celle-state", for eksempel `død` og `levende`. Vi kan tenke oss at svarte celler er levende og hvite celler er døde. 
@@ -116,14 +116,14 @@ Til slutt skal du gjøre ferdig metoden for å lage en kopi av en CellGrid. Ett 
 ✅ Gjør ferdig metoden for `copy`. Når du er ferdig skal alle testene passere. (`add-commit-push`)
 
 
-# 3.2 Game of Life 
+# 4.2 Game of Life 
 I denne oppgaven skal du gjøre ferdig GameOfLife-klassen. Denne klassen har ikke tester, så du må debugge den ved å kjøre programmet og se om den oppfører seg riktig. 
 
 Når du kjører spillet kan du sjekke oppførselen ved å se om du finner igjen noen av animasjonene fra tidligere i teksten? Sjekk ut animasjonene på Wikipedia-artikkelen om Game of Life og se om du finner 'blinker', 'block' og 'glider' på brettet ditt. 
 
 Du er ferdig når programmet ditt oppfører seg i henhold til Game of Life-reglene og testene i ``GameOfLifeTest`` passerer.
 
-### 3.2.0 Regler
+### 4.2.0 Regler
 Vi abstraherer Game of Life til et grid av celler som er enten døde eller levende. Alle cellene starter med en gitt cellestatus, og deretter oppdateres alle celler hvert tidssteg i henhold til reglene: 
 
 - En levende celle med færre enn to levende naboer dør.
@@ -168,7 +168,7 @@ Nå er det tid for å legge inn reglene. Vi har lagt inn `//TODO`-kommentarer de
 
 ![Game of life](img/cell.png)
 
-### 3.3 Brian's Brain
+### 4.3 Brian's Brain
 Det finnes mange forskjellige CelleAutomater. Nå har du rammeverket klart for å implementere enda en automat. La oss prøve [Brian's Brain](https://en.wikipedia.org/wiki/Brian%27s_Brain).
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a7/Brian%27s_brain.gif)
