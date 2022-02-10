@@ -76,13 +76,11 @@ En celleautomat består av celler organisert i en todimensjonal grid. Hver celle
 
 Du har fått utlevert et delvis ferdig program for en celleautomat. Det er organisert i følgende pakker: 
 
-- `inf101.lab3.cellular` inneholder abstraksjonen av celleautomater
-- `inf101.lab3.cellular.gui` inneholder komponenter for knapper og grafikk
-- `inf101.lab3.cellular.datastructure` inneholder en datastruktur for rutenett av celle-states. 
+- `cellular` inneholder abstraksjonen av celleautomater
+- `cellular.gui` inneholder komponenter for knapper og grafikk
+- `datastructure` inneholder en datastruktur for rutenett av celle-states. 
 
 ![GoL-pulsar](https://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif)
-
-Du er ferdig med hele ukesoppgaven når `Cellegrid.java` implmenterer `IGrid` korrekt ved hjelp av en List<CellState> fra Java Collections, og alle testene i GridTest passerer.
 
 *Du kan jobbe ut ifra testene, dokumentasjonen og debuggeren, eller du kan bruke steg-for-steg guiden i de neste deloppgavene.*
 
