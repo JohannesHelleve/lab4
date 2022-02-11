@@ -85,13 +85,15 @@ Du har fått utlevert et delvis ferdig program for en celleautomat. Det er organ
 *Du kan jobbe ut ifra testene, dokumentasjonen og debuggeren, eller du kan bruke steg-for-steg guiden i de neste deloppgavene.*
 
 ## Steg-for-steg
+**MERK: `BriansBrainTest` inneholder syntax-errors som vil fikses i siste oppgave. Enn så lenge kan du kjøre programmet selv med feil. Så lenge feilene er kun i den klassen er alt på stell.**
+
 CellGrid skal representere et grid av celler. Hver celle er identifisert ved en posisjon `(row, col)` og har 8 naboer - med mindre den ligger langs en kant. I illustrasjonen under har den blå cellen posisjon `(2,2)`  og er naboer med alle de røde cellene. 
 
 ![moore-nabolag](http://upload.wikimedia.org/wikipedia/en/d/d2/CA-Moore.png "Moore nabolag")
 
 🤔 *Hvilke datastrukturer passer til å implementere dette?*
 
-Hvis du har gjort alt riktig så skal koden være fri for feilmeldinger og CellGrid inneholder fem tomme medtoder og en tom konstruktør. For å implementere disse metodene riktig trenger CellGrid noen feltvariabler: en bredde-verdi (`cols`), en høyde-verdi (`rows`) og en datastruktur (`CellState[][]`) som holder på `rows*cols` antall `CellState`-verdier. 
+Klassen `CellGrid` inneholder fem tomme medtoder og en tom konstruktør. For å implementere disse metodene riktig trenger CellGrid noen feltvariabler: en bredde-verdi (`cols`), en høyde-verdi (`rows`) og en datastruktur (`CellState[][]`) som holder på `rows*cols` antall `CellState`-verdier. 
 
 ✅ Legg inn feltvariablene som mangler i `CellGrid` og *assign* verdier til dem i CellGrid-konstruktøren. Listen skal fylles med den CellState-verdien som blir gitt til konstruktøren. (`add-commit-push`)
 
