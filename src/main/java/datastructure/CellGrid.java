@@ -4,8 +4,14 @@ import cellular.CellState;
 
 public class CellGrid implements IGrid {
 
+    int rows = 0;
+    int columns = 0;
+    CellState initialState = CellState.DEAD;
+
     public CellGrid(int rows, int columns, CellState initialState) {
-		// TODO Auto-generated constructor stub
+		this.rows = rows;
+        this.columns = columns;
+        this.initialState = initialState;
 	}
 
     @Override
