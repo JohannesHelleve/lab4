@@ -31,7 +31,7 @@ public interface IGrid {
 	 * row must be greater than or equal to 0 and less than numRows().
 	 * column must be greater than or equal to 0 and less than numColumns().
 	 * 
-	 * If invalid values for row or column is passed, an InvallidArgumentException
+	 * If invalid values for row or column is passed, an IndexOutOfBoundsException
 	 * is thrown.
 	 * 
 	 * @param x       The column of the cell to change the contents of.
