@@ -1,3 +1,5 @@
+/** Her
+
 package cellular;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,11 +36,14 @@ public class BriansBrainTest {
 			}
 		}
 	}
+	Her
+ 	*/
 
 	/**
 	 * On a 3x3 board check if GameOfLife::getNextCell return correct CellState
 	 * given how many of the neighbouring cells are alive
 	 */
+	/**
 	@Test
 	public void briansBrainRules() {
 		CellAutomaton ca = new BriansBrain(3, 3);
@@ -66,11 +71,13 @@ public class BriansBrainTest {
         assertEquals(CellState.ALIVE, ca.getNextCell(1, 1));
 
 	}
-
+	Her
+	 */
 	/**
 	 * Create GameOfLife grid with <code>aliveCells</code> number of alive cells.
 	 * The center cell has the value of <code>centerState</code>
 	 */
+	/**
 	public void aliveWithNNeighbours(CellAutomaton ca, int aliveCells, CellState centerState) {
 		IGrid grid = ca.getGrid();
 		CellState currentState = CellState.ALIVE;
@@ -92,3 +99,4 @@ public class BriansBrainTest {
 	}
 
 }
+*/
