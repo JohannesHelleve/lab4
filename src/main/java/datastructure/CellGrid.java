@@ -24,31 +24,34 @@ public class CellGrid implements IGrid {
 
     @Override
     public int numRows() {
-        // TODO Auto-generated method stub
         return rows;
     }
 
     @Override
     public int numColumns() {
-        // TODO Auto-generated method stub
         return columns;
     }
 
     @Override
     public void set(int row, int column, CellState element) {
-        // TODO Auto-generated method stub
-        
+        if (((0 <= row) && (row > rows)) && ((column <= 0) && (column > columns))){
+            throw new IndexOutOfBoundsException();
+        }
+        int index = column+row*columns;
+        grid.set(index, element);
     }
 
     @Override
     public CellState get(int row, int column) {
-        // TODO Auto-generated method stub
-        return null;
+        if (((0 <= row) && (row > rows)) && ((0 <= column) && (column > columns))){
+            throw new IndexOutOfBoundsException();
+        }
+        int index = column+row*columns;
+        return grid.get(index);
     }
 
     @Override
     public IGrid copy() {
-        // TODO Auto-generated method stub
         return null;
     }
     
