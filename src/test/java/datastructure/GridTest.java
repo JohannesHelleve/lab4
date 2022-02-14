@@ -128,5 +128,18 @@ public class GridTest {
 				assertEquals(grid.get(row, col), newGrid.get(row, col));
 			}
 		}
+
+		// Check if changes to the original grid does not change the copied grid
+		CellState firstCell = grid.get(0, 0);
+		CellState notEqualState;
+		if (firstCell == CellState.DEAD) {
+			notEqualState = CellState.ALIVE;
+		}
+		else {
+			notEqualState = CellState.DEAD;
+		}
+
+		grid.set(0, 0, notEqualState);
+		assertFalse(grid.get(0, 0) == newGrid.get(0, 0));
 	}
 }
