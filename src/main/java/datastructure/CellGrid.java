@@ -32,29 +32,35 @@ public class CellGrid implements IGrid {
         return columns;
     }
 
-    @Override
-    public void set(int row, int column, CellState element) {
+    public int indexOf(int row, int column){
         if (((0 <= row) && (row < rows)) && ((0 <= column) && (column < columns))){
             int index = column+row*columns;
-            grid.set(index, element);
+            return index;
         }else{
             throw new IndexOutOfBoundsException();
         }
     }
 
     @Override
+    public void set(int row, int column, CellState element) {
+        grid.set(indexOf(row, column), element);
+    }
+
+    @Override
     public CellState get(int row, int column) {
-        if (((0 <= row) && (row < rows)) && ((0 <= column) && (column < columns))){
-            int index = column+row*columns;
-            return grid.get(index);
-        }else {
-            throw new IndexOutOfBoundsException();
-        }
+        return grid.get(indexOf(row, column));
     }
 
     @Override
     public IGrid copy() {
         IGrid copy = new CellGrid(rows,columns,initialState);
+
+        for(int row = 0; row < rows; row++){
+            for (int col = 0; col < columns; col++){
+                copy.set(row, col, get(row, col));
+            }
+        }
+
         return copy;
     }
     
