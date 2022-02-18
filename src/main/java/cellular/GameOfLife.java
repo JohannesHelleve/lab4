@@ -58,19 +58,19 @@ public class GameOfLife implements CellAutomaton {
 	@Override
 	public int numberOfRows() {
 		// TODO
-		return 0;
+		return currentGeneration.numRows();
 	}
 
 	@Override
 	public int numberOfColumns() {
 		// TODO
-		return 0;
+		return currentGeneration.numColumns();
 	}
 
 	@Override
 	public CellState getCellState(int row, int col) {
 		// TODO
-		return null;
+		return currentGeneration.get(numberOfRows(), numberOfColumns());
 	}
 
 	@Override
