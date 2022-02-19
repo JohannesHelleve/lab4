@@ -4,6 +4,7 @@ import java.util.Random;
 
 import datastructure.CellGrid;
 import datastructure.IGrid;
+import gui.CellAutomataGUI;
 
 /**
  * 
@@ -70,22 +71,49 @@ public class GameOfLife implements CellAutomaton {
 	@Override
 	public CellState getCellState(int row, int col) {
 		// TODO
-		return currentGeneration.get(numberOfRows(), numberOfColumns());
+		return currentGeneration.get(row, col);
 	}
 
 	@Override
 	public void step() {
 		IGrid nextGeneration = currentGeneration.copy();
-		// TODO
+		for(int row = 0; row < numberOfRows(); row++){
+			for (int col = 0; col < numberOfColumns(); col++){
+				nextGeneration.set(row,col,getNextCell(row,col));
+			}
+		}
+		currentGeneration = nextGeneration;
 	}
 
 	@Override
 	public CellState getNextCell(int row, int col) {
-		// TODO
+
+		CellState cellCurrent = getCellState(row, col);
+		int neighbours = countNeighbors(row, col, CellState.ALIVE);
+
+		if (cellCurrent == CellState.ALIVE) {
+			if (neighbours < 2) {
+				return CellState.DEAD;
+			}
+			if ((neighbours == 2) || (neighbours == 3)) {
+				return CellState.ALIVE;
+			}
+			if (neighbours > 3) {
+				return CellState.DEAD;
+			} else
+				return CellState.DEAD;
+		}
+
+		if (cellCurrent == CellState.DEAD) {
+			if (neighbours == 3) {
+				return CellState.ALIVE;
+			} else {
+				return CellState.DEAD;
+			}
+		}
 		return null;
 	}
-
-	/**
+		/**
 	 * Calculates the number of neighbors having a given CellState of a cell on
 	 * position (row, col) on the board
 	 * 
@@ -99,10 +127,27 @@ public class GameOfLife implements CellAutomaton {
 	 * @param state the Cellstate we want to count occurences of.
 	 * @return the number of neighbors with given state
 	 */
-	private int countNeighbors(int row, int col, CellState state) {
-		// TODO
-		return 0;
+	public int countNeighbors(int row, int col, CellState state) {
+		int counter = 0;
+		for(int r = row - 1; r <= row + 1; r++){
+			for (int c = col - 1; c <= col + 1; c++){
+				if (r < 0 || c < 0) {
+					continue;
+				}
+				if (r == currentGeneration.numRows() || c == currentGeneration.numColumns()){
+					continue;
+				}
+				if (r == row && c == col) {
+					continue;
+				}
+				if (state == currentGeneration.get(r, c)) {
+					counter++;
+				}
+			}
+		}
+		return counter;
 	}
+
 
 	@Override
 	public IGrid getGrid() {

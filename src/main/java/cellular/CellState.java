@@ -14,6 +14,7 @@ import java.util.Random;
 public enum CellState {
 	// make the instances this enum should hold
 	ALIVE(Color.BLACK),
+	DYING(Color.BLUE),
 	DEAD(Color.WHITE);
 
 	private Color color;
